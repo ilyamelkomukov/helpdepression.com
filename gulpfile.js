@@ -12,7 +12,9 @@ const gulp = require('gulp'),
   postcss = require('gulp-postcss'),
   bs = require('browser-sync'),
   webpack = require('webpack'),
-  gulpWebpack = require('gulp-webpack');
+  gulpWebpack = require('gulp-webpack'),
+  imagemin = require('gulp-imagemin'),
+  newer = require('gulp-newer');
 
 /*** End plugins ***/
 
@@ -28,11 +30,13 @@ let isDev = process.env.NODE_ENV == 'development',
   inputStyles = `${frontEnd}/styles/`,
   inputScripts = `${frontEnd}/scripts/`,
   inputImgs = `${frontEnd}/imgs/`,
+  inputFonts = `${frontEnd}/fonts/`,
 
   build = `${baseDir}/build/`,
   outputStyles = `${build}/style/`,
   outputScripts = `${build}/script/`,
-  outputImgs = `${build}/imgs/`;
+  outputImgs = `${build}/imgs/`,
+  outputFonts = `${build}/fonts/`;
 
 
 /*** End project paths ***/
@@ -66,7 +70,9 @@ gulp.task("styles", () => {
 /*** Start pics task ***/
 
 gulp.task("pics", () => {
-  return gulp.src(`${inputImgs}/*.*`)
+  return gulp.src(`${inputImgs}/*.*`, {since: gulp.lastRun('pics')})
+    .pipe(newer(`${inputImgs}/`))
+    .pipe(imagemin())
     .pipe(gulp.dest(`${outputImgs}`));
 });
 
@@ -82,6 +88,16 @@ gulp.task('js', () => {
 });
 
 /*** End js task ***/
+
+
+/*** Start fonts task ***/
+
+gulp.task('fonts', () => {
+  return gulp.src(`${inputFonts}/*.*`)
+    .pipe(gulp.dest(`${outputFonts}/`));
+});
+
+/*** End fonts task ***/
 
 
 /*** Start serve task ***/
@@ -105,6 +121,7 @@ gulp.task('watch', (done) => {
   gulp.watch( [`${inputStyles}/**/*.less`, `${inputLayouts}/**/*.less`], gulp.series('styles') );
   gulp.watch( `${inputImgs}/*.*`, gulp.series('pics') );
   gulp.watch( [`${inputScripts}/*.js`, `${inputLayouts}/**/*.js`], gulp.series('js') );
+  gulp.watch( `${inputFonts}/*.*`, gulp.series('fonts') );
 
   done();
 });
@@ -114,7 +131,7 @@ gulp.task('watch', (done) => {
 
 gulp.task('default', gulp.series(
   gulp.parallel(
-    'layouts', 'pics', 'styles', 'js'
+    'layouts', 'pics', 'fonts', 'styles', 'js'
   ),
   'serve',
   'watch'
