@@ -1,0 +1,41 @@
+{
+  "name": "helpdepression.com",
+  "version": "1.0.0",
+  "description": "joke site with some ways to fight with depression, no-commerce, no-propaganda",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "set NODE_ENV=development&& gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyamelkomukov/helpdepression.com.git"
+  },
+  "author": "ilyamelkomukov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilyamelkomukov/helpdepression.com/issues"
+  },
+  "homepage": "https://github.com/ilyamelkomukov/helpdepression.com#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.5",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "browser-sync": "^2.18.13",
+    "cssnano": "^3.10.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-if": "^2.0.2",
+    "gulp-less": "^3.3.2",
+    "gulp-postcss": "^7.0.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-webpack": "^1.5.0",
+    "webpack": "^3.7.1"
+  },
+  "browserslist": [
+    ">1%",
+    "last 10 versions",
+    "IE 9"
+  ]
+}
