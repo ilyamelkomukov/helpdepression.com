@@ -43,6 +43,11 @@
 
 .navbar__navs {
   &:extend(.relative-vert-center);
+
+  @media(max-width: 639px) {
+    position: absolute;
+    display: block;
+  }
 }
 
 .navs {
@@ -72,14 +77,6 @@
     display: block;
   }
 
-// decide with gsap
-  &_navsShow {
-    animation: navsShow .4s;
-  }
-
-  &_navsHide {
-    animation: navsHide .4s;
-  }
 }
 
 
