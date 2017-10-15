@@ -1,0 +1,237 @@
+.nav-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background-color: @text-main-color;
+
+  @media(min-width: 640px) {
+    background-color: transparent;
+  }
+}
+
+.nav-wrapper__navbar {
+  margin: 0 auto;
+  position: relative;
+}
+
+.navbar {
+  width: 90%;
+  height: 10em;
+  background-color: @text-main-color;
+
+  @media(min-width: 640px) {
+    background-color: transparent;
+  }
+
+  @media(min-width: 786px) {
+    .size-percent(1100, 1500);
+    width: @size-percent;
+  }
+
+}
+
+.navbar__svg-logo {
+  &:extend(.relative-vert-center);
+}
+
+.svg-logo {
+  height: 2em;
+  width: 4em;
+  float: left;
+  background: red;
+}
+
+.navbar__navs {
+  &:extend(.relative-vert-center);
+}
+
+.navs {
+  display: none;
+  font: normal 1.4em/normal "Open Sans";
+  float: right;
+
+  @media(min-width: 640px) {
+    display: block;
+  }
+
+  // start of webkit and moz bros margins and ie padding fix
+  list-style-type: none;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-padding-start: 0;
+  margin: 0;
+  padding-left: 0;
+  // end of webkit and moz bros margins and ie padding fix
+
+  &_small-screen {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+// decide with gsap
+  &_navsShow {
+    animation: navsShow .4s;
+  }
+
+  &_navsHide {
+    animation: navsHide .4s;
+  }
+}
+
+
+.nav-item {
+  display: block;
+
+  @media(min-width: 640px) {
+    display: inline-block;
+  }
+
+  .nav-link {
+    display: block;
+    color: @text-inverse-color;
+    .fontSize(21, 14);
+    padding: 1em @fontSize;
+    text-decoration: none;
+    background-color: @text-main-color;
+    border-bottom: 1px solid @text-inverse-color;
+    transition: color .3s ease-out,
+      background-color .3s ease-in,
+      border-bottom-color .3s ease-out;
+
+    &::selection {
+      color: @text-selected-color;
+    }
+
+    &:hover {
+      color: @text-main-color;
+      background-color: @text-inverse-color;
+      border-bottom-color: @text-main-color;
+
+      @media(min-width: 640px) {
+        color: @text-inverse-color;
+        background: transparent;
+        border: none;
+      }
+    }
+
+    @media(min-width: 640px) {
+      border: none;
+      display: inline;
+      background-color: transparent;
+      color: @text-main-color;
+    }
+  }
+
+  &:first-child a {
+
+    border-top: 1px solid @text-inverse-color;
+    transition: color .3s ease-out,
+    background-color .3s ease-in,
+    border-bottom-color .3s ease-out,
+    border-top-color .3s ease-out;
+
+    @media(min-width: 640px) {
+      border: none;
+      display: inline;
+      background-color: transparent;
+    }
+  }
+}
+
+.header_fixed .nav-item a {
+  color: @text-inverse-color;
+
+  &:hover {
+    color: @text-main-color;
+  }
+}
+
+.navbar__hamburger-wrapper {
+  &:extend(.relative-vert-center);
+}
+
+.hamburger-wrapper {
+  display: none;
+  @media(max-width: 639px) {
+    display: block;
+  }
+  float: right;
+  height: 3.6em;
+  width: 4.5em;
+  padding: 1em;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.hamburger-container {
+  width: 2.5em;
+  height: 1.6em;
+  position: relative;
+}
+
+.dash {
+  position: absolute;
+  width: 100%;
+  height: .2em;
+  background-color: @text-inverse-color;
+}
+
+.top {
+  top: 0;
+}
+
+.middle {
+  top: 50%;
+  &:extend(.vert-center);
+  transition: transform .35s ease-out;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.clockwise {
+  transform: rotateZ(-45deg);
+}
+
+.counter-clockwise {
+  transform: rotateZ(45deg);
+}
+
+.top, .bottom {
+  transition: opacity .5s .15s,
+    visibility .5s .15s;
+}
+
+._hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s,
+    visibility .3s;
+}
+
+// todo decide with gsap
+@keyframes navsShow {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes navsHide {
+  to {
+    transform: translateY(-100%);
+  }
+
+  from {
+    transform: translateY(0);
+  }
+}

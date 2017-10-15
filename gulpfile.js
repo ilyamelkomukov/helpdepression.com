@@ -1,3 +1,7 @@
+// TODO: continue work with nav component, need to apply mobile first approach,
+//    it was opened on iphone and mobile first really need
+
+
 "use strict";
 
 

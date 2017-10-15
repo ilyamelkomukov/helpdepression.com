@@ -1,0 +1,10 @@
+
+// calculate widths (or any) for rwd
+.size-percent(@child, @parent) {
+  @size-percent: @child / @parent * 100%;
+}
+
+// calculate vals in em based on the current font size
+.fontSize(@child, @parent) {
+  @fontSize: @child / @parent * 1em;
+}

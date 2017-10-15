@@ -1,5 +1,11 @@
+import Nav from '../components/Nav/Nav.js';
+
 "use strict";
 
 $("document").ready(()=> {
-  console.log("Hello js");
+
+  Nav.changeNavIfPageAlreadyScrolled();
+  Nav.showHideNav();
+  Nav.makeHamburgerToggleable();
+  Nav.makeNavScrollable();
 });
