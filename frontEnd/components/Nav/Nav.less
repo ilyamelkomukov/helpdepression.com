@@ -48,7 +48,7 @@
           border-bottom-color: @text-main-color;
         }
       }
-      
+
       &:first-child a {
 
         border-top: 1px solid @text-inverse-color;
@@ -149,6 +149,7 @@
     .fontSize(21, 14);
     padding: 1em @fontSize;
     text-decoration: none;
+    transition: color .3s ease-out;
 
       &:hover {
         color: @text-inverse-color;
@@ -227,25 +228,4 @@
   visibility: hidden;
   transition: opacity .3s,
     visibility .3s;
-}
-
-// todo decide with gsap
-@keyframes navsShow {
-  from {
-    transform: translateY(-100%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes navsHide {
-  to {
-    transform: translateY(-100%);
-  }
-
-  from {
-    transform: translateY(0);
-  }
 }
