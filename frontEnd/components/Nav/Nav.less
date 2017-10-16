@@ -1,27 +1,93 @@
+.navbar-small-screen {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  overflow: visible;
+
+  .navbar-height-simulate {
+    position: relative;
+    display: block;
+    height: @navbarHeight;
+    width: 100%;
+  }
+
+  @media(min-width: 640px) {
+    display: none;
+  }
+
+  .navs {
+    text-align: center;
+    position: relative;
+    display: block;
+    width: 100%;
+    transition: transform 2s;
+    transform: translateY(-100%);
+
+    &_navbar-show {
+      transform: translateY(0);
+    }
+
+    .nav-item {
+      display: block;
+
+      .nav-link {
+        display: block;
+        color: @text-inverse-color;
+        .fontSize(21, 14);
+        padding: 1em @fontSize;
+        text-decoration: none;
+        background-color: @text-main-color;
+        border-bottom: 1px solid @text-inverse-color;
+        transition: color .3s ease-out,
+        background-color .3s ease-in,
+        border-bottom-color .3s ease-out;
+
+        &:hover {
+          color: @text-main-color;
+          background-color: @text-inverse-color;
+          border-bottom-color: @text-main-color;
+        }
+      }
+      
+      &:first-child a {
+
+        border-top: 1px solid @text-inverse-color;
+        transition: color .3s ease-out,
+        background-color .3s ease-in,
+        border-bottom-color .3s ease-out,
+        border-top-color .3s ease-out;
+      }
+    }
+  }
+
+}
+
+.header_fixed .nav-item a {
+  color: @text-inverse-color;
+
+  &:hover {
+    color: @text-main-color;
+  }
+}
+
 .nav-wrapper {
   position: relative;
-  z-index: 2;
   width: 100%;
   background-color: @text-main-color;
 
   @media(min-width: 640px) {
     background-color: transparent;
-  }
 }
 
-.nav-wrapper__navbar {
+.site-header__navbar {
   margin: 0 auto;
   position: relative;
 }
 
+}
 .navbar {
   width: 90%;
   height: 10em;
-  background-color: @text-main-color;
-
-  @media(min-width: 640px) {
-    background-color: transparent;
-  }
 
   @media(min-width: 786px) {
     .size-percent(1100, 1500);
@@ -43,11 +109,6 @@
 
 .navbar__navs {
   &:extend(.relative-vert-center);
-
-  @media(max-width: 639px) {
-    position: absolute;
-    display: block;
-  }
 }
 
 .navs {
@@ -71,9 +132,8 @@
 
   &_small-screen {
     position: absolute;
-    z-index: 1;
+    // z-index: 1;
     width: 100%;
-    text-align: center;
     display: block;
   }
 
@@ -81,69 +141,26 @@
 
 
 .nav-item {
-  display: block;
-
-  @media(min-width: 640px) {
-    display: inline-block;
-  }
+  display: inline-block;
 
   .nav-link {
-    display: block;
-    color: @text-inverse-color;
+    display: inline-block;
+    color: @text-main-color;
     .fontSize(21, 14);
     padding: 1em @fontSize;
     text-decoration: none;
-    background-color: @text-main-color;
-    border-bottom: 1px solid @text-inverse-color;
-    transition: color .3s ease-out,
-      background-color .3s ease-in,
-      border-bottom-color .3s ease-out;
 
-    &::selection {
-      color: @text-selected-color;
-    }
-
-    &:hover {
-      color: @text-main-color;
-      background-color: @text-inverse-color;
-      border-bottom-color: @text-main-color;
-
-      @media(min-width: 640px) {
+      &:hover {
         color: @text-inverse-color;
-        background: transparent;
-        border: none;
+      }
+
+      &::selection {
+        color: @text-selected-color;
       }
     }
 
-    @media(min-width: 640px) {
-      border: none;
-      display: inline;
-      background-color: transparent;
-      color: @text-main-color;
-    }
-  }
-
-  &:first-child a {
-
-    border-top: 1px solid @text-inverse-color;
-    transition: color .3s ease-out,
-    background-color .3s ease-in,
-    border-bottom-color .3s ease-out,
-    border-top-color .3s ease-out;
-
-    @media(min-width: 640px) {
-      border: none;
-      display: inline;
-      background-color: transparent;
-    }
-  }
-}
-
-.header_fixed .nav-item a {
-  color: @text-inverse-color;
-
-  &:hover {
-    color: @text-main-color;
+  @media(min-width: 640px) {
+    display: inline;
   }
 }
 

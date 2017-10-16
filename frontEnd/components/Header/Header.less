@@ -1,6 +1,11 @@
 .site-header {
   position: absolute;
   width: 100%;
+  background-color: @text-main-color;
+
+  @media(min-width: 640px) {
+    background-color: transparent;
+  }
 }
 
 .header_fixed {

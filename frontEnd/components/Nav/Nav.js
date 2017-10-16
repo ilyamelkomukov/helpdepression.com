@@ -9,24 +9,13 @@ let Nav = {
   },
 
   showHideNav() {
-    var navs = $('.navs');
+    var navs = $('.navbar-small-screen .navs');
 
     $('.hamburger-wrapper')
       .click(() => {
 
-        if (navs.is('.navs_small-screen')) {
-          navs
-            .appendTo('#navbar')
-            .removeClass('navs_small-screen')
-            .addClass('navbar__navs');
-
-        } else {
-          navs
-            .appendTo('.site-header')
-            .addClass('navs_small-screen')
-            .removeClass('navbar__navs');
-
-        }
+        navs
+          .toggleClass('navs_navbar-show');
     });
 
     // remove css rules for small screen if the hamburger was clicked and
@@ -34,11 +23,9 @@ let Nav = {
     // note: we need to bind resize event handler to window
     $(window)
       .resize(function() {
-        if (($(this).outerWidth() >= 640) && navs.is('.navs_small-screen')) {
+        if (($(this).outerWidth() >= 640) && navs.is('.navs_navbar-show')) {
           navs
-            .appendTo('#navbar')
-            .removeClass('navs_small-screen')
-            .addClass('navbar__navs');
+            .removeClass('navs_navbar-show');
 
             _makeHamburgerToggleable($('.hamburger-wrapper'));
         }
