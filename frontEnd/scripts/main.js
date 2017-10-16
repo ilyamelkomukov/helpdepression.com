@@ -13,7 +13,7 @@ $("document").ready(()=> {
   // start carousel
   $(".owl-carousel").owlCarousel({
     items: 1,
-    autoplay: true,
+    // autoplay: true,
     autoplayHoverPause: true,
     rewind: true,
     dots: true,

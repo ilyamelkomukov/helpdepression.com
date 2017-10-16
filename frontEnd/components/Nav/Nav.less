@@ -127,7 +127,6 @@
 
   &_small-screen {
     position: absolute;
-    // z-index: 1;
     width: 100%;
     display: block;
   }
@@ -140,7 +139,7 @@
 
   .nav-link {
     display: inline-block;
-    color: @text-main-color;
+    color: lighten(@text-main-color, 20%);
     .fontSize(21, 14);
     padding: 1em @fontSize;
     text-decoration: none;
