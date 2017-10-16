@@ -1,4 +1,5 @@
 import Nav from '../components/Nav/Nav.js';
+import WhatProblemSlide from '../components/WhatProblem/WhatProblem.js';
 
 "use strict";
 
@@ -18,4 +19,6 @@ $("document").ready(()=> {
     dots: true,
     center: true
   });
+
+  WhatProblemSlide.animateProblemSlides();
 });
