@@ -86,7 +86,7 @@ gulp.task("pics", () => {
 /*** Start js task ***/
 
 gulp.task('js', () => {
-  return gulp.src(`${inputScripts}/main.js`)
+  return gulp.src(`${inputScripts}/**/*.js`)
     .pipe(gulpWebpack(require('./webpack.config.js'), webpack))
     .pipe(gulp.dest(outputScripts));
 });
