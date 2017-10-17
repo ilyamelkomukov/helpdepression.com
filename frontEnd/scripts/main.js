@@ -1,6 +1,5 @@
 import Nav from '../components/Nav/Nav.js';
 import WhatProblemSlide from '../components/WhatProblem/WhatProblem.js';
-import Solution from '../components/Solution/Solution.js';
 
 "use strict";
 
@@ -19,7 +18,7 @@ $("document").ready(()=> {
     rewind: true,
     dots: true,
     center: true,
-    startPosition: 2
+    startPosition: 3
   });
 
   WhatProblemSlide.animateProblemSlides();
