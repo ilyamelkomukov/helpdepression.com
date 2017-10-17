@@ -62,14 +62,6 @@
 
 }
 
-.header_fixed .nav-item a {
-  color: @text-inverse-color;
-
-  &:hover {
-    color: @text-main-color;
-  }
-}
-
 .nav-wrapper {
   position: relative;
   width: 100%;
@@ -115,6 +107,7 @@
   display: none;
   font: normal 1.4em/normal "Open Sans";
   float: right;
+  list-style-type: none;
 
   @media(min-width: 640px) {
     display: block;
@@ -158,6 +151,15 @@
     display: inline;
   }
 }
+
+.header_fixed .nav-item a {
+  color: @text-inverse-color;
+
+  &:hover {
+    color: @text-selected-color;
+  }
+}
+
 
 .navbar__hamburger-wrapper {
   &:extend(.relative-vert-center);

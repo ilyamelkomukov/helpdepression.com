@@ -14,7 +14,6 @@ function _holdSign() {
     });
 
   _disappearIndex = _holdIndex;
-  console.log(`_disappearIndex: ${_disappearIndex}`);
 }
 
 function _changeSigns() {
@@ -36,10 +35,10 @@ function _changeSigns() {
     } else {
       _appearIndex = 0;
     }
-
-    console.log(`holdIndex: ${_holdIndex}, _appearIndex: ${_appearIndex}`);
 }
 
+// just simple save positions of signs in collection of signs for
+// use it in our funcs
 var _signs = $('.problem'),
   _appearIndex = 0,
   _disappearIndex = _signs.length -1,

@@ -75,7 +75,7 @@ gulp.task("styles", () => {
 
 gulp.task("pics", () => {
   return gulp.src(`${inputImgs}/*.*`, {since: gulp.lastRun('pics')})
-    .pipe(newer(`${inputImgs}/*.jpg`))
+    .pipe(newer(`${inputImgs}/*.*`))
     .pipe(imagemin())
     .pipe(gulp.dest(`${outputImgs}`));
 });
