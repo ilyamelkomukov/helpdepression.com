@@ -33,6 +33,7 @@
     "gulp-pug": "^3.3.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-webpack": "^1.5.0",
+    "gulp.spritesmith": "^6.5.1",
     "webpack": "^3.7.1"
   },
   "browserslist": [

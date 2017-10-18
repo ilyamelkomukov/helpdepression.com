@@ -18,7 +18,8 @@ const gulp = require('gulp'),
   webpack = require('webpack'),
   gulpWebpack = require('gulp-webpack'),
   imagemin = require('gulp-imagemin'),
-  newer = require('gulp-newer');
+  newer = require('gulp-newer'),
+  gulpSpritesmith = require('gulp.spritesmith');
 
 /*** End plugins ***/
 
@@ -44,6 +45,8 @@ let isDev = process.env.NODE_ENV == 'development',
 
 
 /*** End project paths ***/
+
+
 
 
 /*** Start layouts task ***/
@@ -81,6 +84,20 @@ gulp.task("pics", () => {
 });
 
 /*** End pics task ***/
+
+
+/*** Start sprites task ***/
+
+gulp.task('sprites', () => {
+  return gulp.src(`${inputImgs}/sprites/*.png`)
+  .pipe(gulpSpritesmith({
+    imgName: 'sprites.png',
+    cssName: 'sprites.css'
+  }))
+  .pipe(gulp.dest(`${inputImgs}/sprites/compSprites/`));
+});
+
+/*** End sprites task ***/
 
 
 /*** Start js task ***/
@@ -126,6 +143,9 @@ gulp.task('watch', (done) => {
   gulp.watch( `${inputImgs}/*.*`, gulp.series('pics') );
   gulp.watch( [`${inputScripts}/*.js`, `${inputLayouts}/**/*.js`], gulp.series('js') );
   gulp.watch( `${inputFonts}/*.*`, gulp.series('fonts') );
+  gulp.watch( `${inputImgs}/sprites/*.png`, gulp.series('sprites') );
+
+
 
   done();
 });
@@ -135,7 +155,7 @@ gulp.task('watch', (done) => {
 
 gulp.task('default', gulp.series(
   gulp.parallel(
-    'layouts', 'pics', 'fonts', 'styles', 'js'
+    'layouts', 'pics', 'fonts', 'styles', 'sprites', 'js'
   ),
   'serve',
   'watch'

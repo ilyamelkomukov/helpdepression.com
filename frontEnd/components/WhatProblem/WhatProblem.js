@@ -1,14 +1,25 @@
 let WhatProblemSlide = {
+
   animateProblemSlides() {
 
     _changeSigns();
+
+    // TEst call object method in just this same object by callback
+    // $('.testCallFunc')
+    //   .animate({
+    //     visibility: "hidden"
+    //   }, 1, this.testCallFunc);
   }
+
+  // ,testCallFunc() {
+  //   console.log('in callback');
+  // }
 };
 
 function _holdSign() {
 
   TweenLite
-    .to(_signs.eq(_holdIndex), 1.5, {
+    .to(_signs.eq(_holdIndex), 2, {
       opacity: 1,
       onComplete: _changeSigns
     });
