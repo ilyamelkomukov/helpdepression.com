@@ -1,5 +1,6 @@
 // TODO: continue work with nav component, need to apply mobile first approach,
 //    it was opened on iphone and mobile first really need
+// Done
 
 
 "use strict";
@@ -45,8 +46,6 @@ let isDev = process.env.NODE_ENV == 'development',
 
 
 /*** End project paths ***/
-
-
 
 
 /*** Start layouts task ***/

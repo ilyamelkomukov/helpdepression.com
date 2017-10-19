@@ -5,16 +5,15 @@
   margin: @fontSize auto;
   display: flex;
   flex-flow: column nowrap;
-  // @media(min-width:)
+  @media(min-width: 1080px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .advantage-wrapper {
   width: 90%;
   margin: 2.5em auto;
-  // .size-percent(@advantage-width, @advantages-width);
-  // width: @size-percent;
-  // .fontSize(80, 10);
-  // margin-right: @fontSize;
   padding-left: 8em;
   position: relative;
 
@@ -23,9 +22,15 @@
     width: 60%;
   }
 
-  // &:last-of-type {
-  //   margin-right: 0;
-  // }
+  @media(min-width: 1080px) {
+    .size-percent(@advantage-width, @advantages-width);
+    width: @size-percent;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
 }
 
 .icon-s1 {
@@ -73,8 +78,8 @@
   font: bold @fontSize/normal 'Open Sans', sans;
   text-align: center;
 
+  &:extend(.margins-fix);
   @media(min-width: 900px) {
-    font-size: 2.8em;
   }
 }
 

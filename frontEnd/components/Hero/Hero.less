@@ -1,5 +1,20 @@
 .ways-to-fight-depression {
   width: 100%;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    &:extend(.hor-center);
+
+    // based on owl carousel owl-dots styles and metricks
+    bottom: 33px;
+
+    background: url(../imgs/sprites.png) 0 -57px;
+    width: 24px;
+    height: @scroll-sprite-height;
+  }
 }
 
 .slide{

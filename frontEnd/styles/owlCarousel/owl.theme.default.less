@@ -34,7 +34,7 @@
   text-align: center;
   -webkit-tap-highlight-color: transparent;
   position: relative;
-  transform: translateY(-150%);
+  transform: ~"translateY(calc(-150% - @{scroll-sprite-height}))";
   z-index: 1;
 }
   .owl-theme .owl-dots .owl-dot {
