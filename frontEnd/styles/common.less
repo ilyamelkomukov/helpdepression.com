@@ -46,3 +46,18 @@ html {
   -webkit-padding-start: 0;
   margin: 0;
 }
+
+
+.about-after-marker {
+  display: block;
+  content: '';
+  position: absolute;
+  transform: ~"translateX(calc(-50% - 1px))";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid @about-border-color;
+  background-color: @about-back-color;
+  box-shadow: 0 0 0 9px @about-back-color;
+
+}

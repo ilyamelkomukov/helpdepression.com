@@ -1,0 +1,127 @@
+.about-wrapper {
+  background-color: @about-back-color;
+}
+.about {
+  width: 100%;
+  position: relative;
+
+  @media(min-width: 667px) {
+    .size-percent(@advantages-width, @maquette-width);
+    width: @size-percent;
+    margin: 0 auto;
+
+  }
+
+  background-color: @about-back-color;
+  padding-top: 13em;
+  text-align: center;
+  color: @text-main-color;
+}
+
+#about-heading {
+  font: normal 7em / normal 'Honey Script', sans;
+  &:extend(.margins-fix);
+
+  .fontSize(50, 70);
+  margin-bottom: @fontSize;
+}
+
+.about-text {
+  font: normal 1.6em / normal 'Open Sans', sans;
+}
+
+.about__about-details {
+  .fontSize(44, 16);
+  margin-top: @fontSize;
+}
+
+.about-details {
+  text-align: left;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+
+.detail {
+  position: relative;
+  width: ~"calc(50% + 2px)";
+  .fontSize(28, 16);
+  padding: 0 @fontSize;
+
+  &:first-child {
+    border-left: 2px solid @about-border-color;
+    margin-left: 50%;
+    .fontSize(100, 16);
+    padding-top: @fontSize;
+
+    &::before {
+      &:extend(.about-after-marker);
+      left: 0;
+    }
+
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: ~"translateX(calc(-50% - 1px))";
+      height: 2px;
+      .fontSize(30, 16);
+      width: @fontSize;
+      background-color: @about-border-color;
+    }
+  }
+
+  &:nth-child(odd) {
+    border-left: 2px solid @about-border-color;
+    margin-left: 50%;
+
+    &::before {
+      &:extend(.about-after-marker);
+      left: 0;
+    }
+  }
+
+  &:nth-child(even) {
+    border-right: 2px solid @about-border-color;
+    margin-right: 50%;
+
+    &::before {
+      &:extend(.about-after-marker);
+      transform: ~"translateX(calc(50% + 1px))";
+      right: 0;
+    }
+  }
+
+  &:last-child {
+    border-right: 2px solid @about-border-color;
+    margin-right: 50%;
+    .fontSize(140, 16);
+    padding-bottom: @fontSize;
+
+    &::before {
+      &:extend(.about-after-marker);
+      transform: ~"translateX(calc(50% + 1px))";
+      right: 0;
+    }
+  }
+
+}
+
+.detail-heading {
+  // need this line, cause of useragent sets it to another value
+  font-size: 1em;
+  &:extend(.margins-fix);
+  .fontSize(20, 18.72);
+  margin-bottom: @fontSize;
+}
+
+
+
+
+.detail-clarification {
+  .fontSize(14, 16);
+  font-size: @fontSize;
+  &:extend(.margins-fix);
+}
