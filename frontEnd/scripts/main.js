@@ -1,5 +1,6 @@
 import Nav from '../components/Nav/Nav.js';
 import WhatProblemSlide from '../components/WhatProblem/WhatProblem.js';
+import Hero from '../components/Hero/Hero.js';
 
 "use strict";
 
@@ -16,10 +17,13 @@ $("document").ready(()=> {
     // autoplay: true,
     autoplayHoverPause: true,
     rewind: true,
-    dots: true,
+    dots: false,
+    nav: true,
     center: true,
-    startPosition: 3
+    startPosition: 0
   });
 
   WhatProblemSlide.animateProblemSlides();
+
+  // Hero.morphScroll();
 });

@@ -1,0 +1,34 @@
+.footer-wrapper {
+  position: relative;
+  width: 100%;
+  height: @navbarHeight;
+  background-color: @text-main-color;
+  color: darken(@text-inverse-color, 30%);
+}
+
+.footer {
+  width: 100%;
+  position: relative;
+  height: @navbarHeight;
+
+  @media(min-width: 667px) {
+    .size-percent(@advantages-width, @maquette-width);
+    width: @size-percent;
+    margin: 0 auto;
+  }
+}
+
+.footer-sign {
+  position: absolute;
+  &:extend(.vert-center);
+  &:extend(.margins-fix);
+  font: normal 1.3em / normal "Open Sans", sans;
+
+}
+
+
+.site-name {
+  .fontSize(50, 13);
+  font: normal @fontSize / normal "Honey Script", sans;
+  color: darken(@text-inverse-color, 50%);
+}

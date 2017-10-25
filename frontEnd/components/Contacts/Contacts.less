@@ -1,0 +1,56 @@
+.contacts-wrapper {
+  text-align: center;
+  .fontSize(237, 26);
+  padding: @fontSize 0;
+  font: normal 2.6em / normal 'Open Sans', sans;
+  color: @text-main-color;
+}
+
+.contacts-wrapper__contacts-header {
+  position: relative;
+  &:extend(.margins-fix);
+  .fontSize(60, 26);
+  margin-bottom: @fontSize;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%)
+      translateY(-100%);
+    transform-style: preserve-3d;
+    background-image: url(../imgs/sprites.png);
+    background-position: 0px 0px;
+    width: 48px;
+    height: 57px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%)
+      translateY(100%);
+    transform-style: preserve-3d;
+    .size-percent(100, @contacts-width);
+    width: @size-percent;
+    height: 1px;
+    background-color: @text-main-color;
+  }
+}
+
+#contacts-header {
+  .fontSize(40, 26);
+  padding: @fontSize 0 @fontSize * 1.5 0;
+  text-transform: uppercase;
+}
+
+.contacts {
+  font-style: italic;
+  color: @text-selected-color;
+  font-weight: 600;
+}

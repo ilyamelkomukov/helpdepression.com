@@ -88,15 +88,32 @@
 
 }
 
+
+
 .navbar__svg-logo {
   &:extend(.relative-vert-center);
 }
 
 .svg-logo {
-  height: 2em;
-  width: 4em;
   float: left;
-  background: red;
+  font: normal 3.5em / normal "Honey Script", sans;
+  color: lighten(@text-main-color, 20%);
+  transition: color .3s ease-out;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: @text-inverse-color;
+  }
+}
+
+.header_fixed .svg-logo {
+  color: @text-inverse-color;
+
+  &:hover {
+    color: @text-selected-color;
+  }
+
 }
 
 .navbar__navs {
