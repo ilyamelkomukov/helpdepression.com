@@ -10,11 +10,13 @@
   width: 100%;
   position: relative;
   height: @navbarHeight;
+  padding: 0 1em;
 
   @media(min-width: 667px) {
     .size-percent(@advantages-width, @maquette-width);
     width: @size-percent;
     margin: 0 auto;
+    padding: 0;
   }
 }
 
@@ -23,7 +25,6 @@
   &:extend(.vert-center);
   &:extend(.margins-fix);
   font: normal 1.3em / normal "Open Sans", sans;
-
 }
 
 

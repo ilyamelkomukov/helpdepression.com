@@ -2,6 +2,8 @@ import Nav from '../components/Nav/Nav.js';
 import WhatProblemSlide from '../components/WhatProblem/WhatProblem.js';
 import Hero from '../components/Hero/Hero.js';
 
+const s2id = require('page-scroll-to-id');
+
 "use strict";
 
 $("document").ready(()=> {
@@ -25,5 +27,13 @@ $("document").ready(()=> {
 
   WhatProblemSlide.animateProblemSlides();
 
-  // Hero.morphScroll();
+  $('a[rel="m_PageScroll2id"]')
+    .mPageScroll2id({
+      offset:".nav-wrapper"
+    });
 });
+
+
+function _makeScrollToId() {
+  console.log('in here');
+}
