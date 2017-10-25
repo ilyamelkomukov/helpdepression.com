@@ -1,7 +1,9 @@
 // TODO: continue work with nav component, need to apply mobile first approach,
 //    it was opened on iphone and mobile first really need
 // Done
-
+// TODO: try to solve problem when pics with different sizes (especially with
+// different heights) need to be showed in one line on one level (align-items by
+// flex doesn`t fit, it might be like in uno psd template)
 
 "use strict";
 

@@ -1,0 +1,128 @@
+.testimonials-wrapper {
+  background-color: @about-back-color;
+  // background-color: rgb(235, 45, 205);
+
+  color: @text-main-color;
+  padding: 14em 0;
+}
+
+#testimonials-header {
+  &:extend(.margins-fix);
+  font: normal 1.4em / normal 'Open Sans', sans;
+  text-align: center;
+  .fontSize(90, 14);
+  margin-bottom: @fontSize;
+
+  .testimonials-header-1 {
+    text-transform: uppercase;
+    .fontSize(22, 14);
+    font: bold @fontSize / normal 'Open Sans', sans;
+  }
+
+
+}
+
+
+.testimonials-wrapper__testimonials {
+  width: 100%;
+  position: relative;
+
+  @media(min-width: 667px) {
+    .size-percent(@advantages-width, @maquette-width);
+    width: @size-percent;
+    margin: 0 auto;
+  }
+}
+
+.testimonials {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+
+  @media(min-width: 1080px) {
+    flex-flow: row;
+    justify-content: space-between;
+  }
+}
+
+.testimonial {
+  font: 600 1.6em / normal 'Open Sans', sans;
+  padding-top: 2em;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  @media(min-width: 1080px) {
+    padding-top: 0;
+    .size-percent(312, @advantages-width);
+    width: @size-percent;
+  }
+
+}
+
+.testimonial__reviewer {
+  &:extend(.margins-fix);
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    &:extend(.hor-center);
+    background-image: url(../imgs/sprites.png);
+    background-position: -48px 0px;
+    width: 46px;
+    height: 46px;
+    z-index: 1;
+  }
+}
+
+.reviewer {
+
+}
+
+.reviewer-photo {
+  width: auto;
+  max-width: 100%;
+  .fontSize(70, 16);
+  padding-top: @fontSize;
+}
+
+.reviewer-name {
+  .fontSize(22, 16);
+  padding-top: @fontSize;
+  padding-bottom: 2.5em;
+}
+
+
+.reviewer-testimonial {
+  position: relative;
+  .fontSize(40, 16);
+  padding: @fontSize @fontSize / 2;
+  border-top: 1px solid @testimonial-border-color;
+  border-bottom: 1px solid @testimonial-border-color;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%)
+      translateY(-50%)
+      rotateZ(45deg);
+    transform-style: preserve-3d;
+    z-index: 1;
+    width: 18px;
+    height: 18px;
+    background-color: @about-back-color;
+    border-top: 1px solid @testimonial-border-color;
+    border-left: 1px solid @testimonial-border-color;
+  }
+
+  @media(min-width: 1366px) {
+    // width: 40%;
+    // margin: 0 auto;
+  }
+}
