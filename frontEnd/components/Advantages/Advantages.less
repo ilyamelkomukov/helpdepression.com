@@ -1,13 +1,22 @@
 .advantages {
   .size-percent(@advantages-width, @maquette-width);
   width: @size-percent;
-  .fontSize(140, 10);
+  .fontSize(60, 10);
   margin: @fontSize auto;
   display: flex;
   flex-flow: column nowrap;
+
   @media(min-width: 1080px) {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  @media(min-width: 1280px) {
+    margin: 8em auto;
+  }
+
+  @media(min-width: 1366px) {
+    margin: 14em auto;
   }
 }
 

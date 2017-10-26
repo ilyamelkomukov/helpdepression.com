@@ -1,15 +1,31 @@
 .impact-areas-wrapper {
-  margin-bottom: 14em;
+  margin-bottom: 6em;
   color: @text-main-color;
+
+  @media(min-width: 1280px) {
+    margin-bottom: 8em;
+  }
+
+  @media(min-width: 1366px) {
+    margin-bottom: 14em;
+  }
 }
 
 .phrenology-segments-wrapper {
   position: relative;
-  width: 70%;
+  width: 60%;
   margin: 4em auto;
 
   @media(min-width: 667px) {
     width: 40%;
+  }
+
+  @media(min-width: 1024px) {
+    width: 35%;
+  }
+
+  @media(min-width: 1366px) {
+    width: 20%;
   }
 
 }
@@ -59,6 +75,10 @@
     .size-percent(@advantages-width, @maquette-width);
     width: @size-percent;
     margin: 0 auto;
+  }
+
+  @media(min-width: 1024px) {
+    width: 40%;
   }
 }
 

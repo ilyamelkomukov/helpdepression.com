@@ -1,9 +1,18 @@
 .contacts-wrapper {
   text-align: center;
-  .fontSize(237, 26);
+  .fontSize(100, 26);
   padding: @fontSize 0 0.59 * @fontSize 0;
   font: normal 2.6em / normal 'Open Sans', sans;
   color: @text-main-color;
+
+  @media(min-width: 1280px) {
+    padding: 140 / 100 * @fontSize 0;
+  }
+
+  @media(min-width: 1366px) {
+    @large-screen-padding: 237 / 100 * @fontSize;
+    padding: @large-screen-padding 0 0.59 * @large-screen-padding 0;
+  }
 }
 
 .contacts-wrapper__contacts-header {
