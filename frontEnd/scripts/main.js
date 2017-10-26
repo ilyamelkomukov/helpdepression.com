@@ -2,6 +2,7 @@ import Nav from '../components/Nav/Nav.js';
 import WhatProblemSlide from '../components/WhatProblem/WhatProblem.js';
 import Hero from '../components/Hero/Hero.js';
 import ImpactAreas from '../components/ImpactAreas/ImpactAreas.js';
+import FearsGo from '../components/FearsGo/FearsGo.js'
 
 const s2id = require('page-scroll-to-id');
 
@@ -35,4 +36,6 @@ $("document").ready(()=> {
     });
 
     ImpactAreas.makeHighlightAreas();
+
+    FearsGo.makeFearsGo();
 });

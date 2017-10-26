@@ -1,0 +1,15 @@
+section.fearsGo(aria-labelledby="fearsGo-heading")
+  h2#fearsGo-heading(role='heading') With hypnotoad your fears go away
+  p.wipe-advice
+    | With hypnotoad you need just wipe your fears with your finger or move 
+    | over them the cursor
+  section.fears-wrapper
+    svg.bedrooms(xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" viewBox="0 0 888 668")
+      defs
+        clipPath#mask
+          circle#mask-circle(cx="50%" cy="50%" r="5%" style="fill: #ffffff")
+      image.bedroom(alt="boy`s bedroom with nightmares" style="overflow:visible;" width="888" height="668" xlink:href="/imgs/boyBedroom-Dark.jpg")
+      g(clip-path="url(#mask)")
+        image.bedroom(alt="boy`s bedroom without nightmares" style="overflow:visible;" width="888" height="668" xlink:href="/imgs/boyBedroom-Light.jpg")
+      circle#circle-shadow(cx="50%" cy="50%" r="5%" style="stroke: #fff; fill: transparent; stroke-width: 5;")
+        
