@@ -24,15 +24,14 @@ let ImpactAreas = {
       .hover(
         function(e) {
 
-          var target = e.target,
-            segmentId = target.getAttribute('id');
+          var target = e.target;
 
           $(target).addClass('_segment_hover');
 
           _impactClarifications
             .filter(function(index, elem) {
 
-              return Number(segmentId[segmentId.length - 1]) ==
+              return Number(target.getAttribute('id').slice(-1)) ==
                 Number($(this)
                           .data('segment-number'));
             })
@@ -45,8 +44,7 @@ let ImpactAreas = {
         },
         function(e) {
 
-          var target = e.target,
-            segmentId = target.getAttribute('id');
+          var target = e.target;
 
           $(e.target).removeClass('_segment_hover');
 
