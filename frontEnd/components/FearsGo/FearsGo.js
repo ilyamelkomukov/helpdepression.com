@@ -14,10 +14,8 @@ let FearsGo = {
     }
 
     function update(svgCoords) {
-      maskedElement.setAttribute('cx', svgCoords.x);
-      maskedElement.setAttribute('cy', svgCoords.y);
-      circleFeedback.setAttribute('cx', svgCoords.x);
-      circleFeedback.setAttribute('cy', svgCoords.y);
+      maskedElement.setAttribute('transform', `translate(${svgCoords.x} ${svgCoords.y})` );
+      circleFeedback.setAttribute('transform', `translate(${svgCoords.x} ${svgCoords.y})` );
     }
 
     window.addEventListener('mousemove', function(e) {
