@@ -30,12 +30,11 @@ let ImpactAreas = {
           $(target).addClass('_segment_hover');
 
           _impactClarifications
-            .filter(function(index) {
+            .filter(function(index, elem) {
 
               return Number(segmentId[segmentId.length - 1]) ==
-                Number(_impactClarifications
-                          .eq(index)
-                            .data('segment-number'));
+                Number($(this)
+                          .data('segment-number'));
             })
               .css({
                 display: 'block',
