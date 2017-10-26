@@ -1,6 +1,7 @@
 import Nav from '../components/Nav/Nav.js';
 import WhatProblemSlide from '../components/WhatProblem/WhatProblem.js';
 import Hero from '../components/Hero/Hero.js';
+import ImpactAreas from '../components/ImpactAreas/ImpactAreas.js';
 
 const s2id = require('page-scroll-to-id');
 
@@ -29,11 +30,9 @@ $("document").ready(()=> {
 
   $('a[rel="m_PageScroll2id"]')
     .mPageScroll2id({
-      offset:".nav-wrapper"
+      offset:".nav-wrapper",
+      appendHash: true
     });
+
+    ImpactAreas.makeHighlightAreas();
 });
-
-
-function _makeScrollToId() {
-  console.log('in here');
-}

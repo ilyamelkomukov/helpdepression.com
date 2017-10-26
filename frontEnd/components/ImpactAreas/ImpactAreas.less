@@ -1,0 +1,73 @@
+.impact-areas-wrapper {
+  margin-bottom: 14em;
+  color: @text-main-color;
+}
+
+.phrenology-segments-wrapper {
+  position: relative;
+  width: 70%;
+  margin: 4em auto;
+
+  @media(min-width: 667px) {
+    width: 40%;
+  }
+
+}
+
+#impact-areas-heading {
+  &:extend(.margins-fix);
+  padding-top: 2em;
+  font: normal 7em / normal 'Honey Script', sans;
+  text-align: center;
+}
+
+#phrenology-segments {
+  position: relative;
+  max-width: 100%;
+  width: auto;
+}
+
+.segment {
+  cursor: pointer;
+  fill: rgb(86, 234, 249);
+  stroke:rgb(221, 76, 202);
+  stroke-width: 8;
+  opacity: 0;
+  filter: url(#segment-blur);
+  transition: opacity .3s ease-out;
+  outline: none;
+}
+
+._segment_hover {
+  opacity: .51;
+}
+
+#impact-clarifications {
+  position: relative;
+}
+
+.impact-clarification {
+  position: absolute;
+  &:extend(.vert-hor-center);
+  &:extend(.margins-fix);
+  font: normal 1.4em / normal 'Open Sans', sans;
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 1em;
+
+  @media(min-width: 667px) {
+    .size-percent(@advantages-width, @maquette-width);
+    width: @size-percent;
+    margin: 0 auto;
+  }
+}
+
+._impact-clarification_visible {
+  opacity: 1;
+}
+
+.impact-clarification-heading {
+  &:extend(.margins-fix);
+  margin: .5em 0;
+  font: normal 1.8em / normal 'Open Sans', sans;
+}
