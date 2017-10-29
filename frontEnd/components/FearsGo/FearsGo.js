@@ -3,8 +3,8 @@ let FearsGo = {
   makeFearsGo() {
 
     var svgElement = document.querySelector('svg.bedrooms'),
-      maskedElement = document.querySelector('#mask-circle'),
-      circleFeedback = document.querySelector('#circle-shadow'),
+      maskedElement = document.querySelector('#mask-hypnotoad'),
+      circleFeedback = document.querySelector('#hypnotoad-shadow'),
       svgPoint = svgElement.createSVGPoint();
 
     function cursorPoint(e, svg) {
