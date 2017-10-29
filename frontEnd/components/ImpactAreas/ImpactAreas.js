@@ -31,9 +31,9 @@ let ImpactAreas = {
           _impactClarifications
             .filter(function(index, elem) {
 
-              return Number(target.getAttribute('id').slice(-1)) ==
-                Number($(this)
-                          .data('segment-number'));
+              return target.getAttribute('id').slice(-1) ==
+                $(this)
+                  .data('segment-number');
             })
               .css({
                 display: 'block',

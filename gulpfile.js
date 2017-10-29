@@ -2,8 +2,9 @@
 //    it was opened on iphone and mobile first really need
 // Done
 // TODO: try to solve problem when pics with different sizes (especially with
-// different heights) need to be showed in one line on one level (align-items by
-// flex doesn`t fit, it might be like in uno psd template)
+//      different heights) need to be showed in one line on one level (align-items by
+//       flex doesn`t fit, it might be like in uno psd template)
+// TODO: Do color changes with TweenMax
 
 "use strict";
 
@@ -20,6 +21,8 @@ const gulp = require('gulp'),
   bs = require('browser-sync'),
   webpack = require('webpack'),
   gulpWebpack = require('gulp-webpack'),
+  gulpConcat = require('gulp-concat'),
+  gulpUglify = require('gulp-uglify'),
   imagemin = require('gulp-imagemin'),
   newer = require('gulp-newer'),
   gulpSpritesmith = require('gulp.spritesmith');
@@ -101,10 +104,22 @@ gulp.task('sprites', () => {
 /*** End sprites task ***/
 
 
+/*** Start js libs task ***/
+
+gulp.task('libs', () => {
+  return gulp.src(`${inputScripts}/libs/**/*.js`)
+    .pipe(gulpConcat('libs.js'))
+    .pipe(gulpUglify())
+    .pipe(gulp.dest(`${outputScripts}/libs/`));
+});
+
+/*** End js libs task ***/
+
+
 /*** Start js task ***/
 
 gulp.task('js', () => {
-  return gulp.src(`${inputScripts}/**/*.js`)
+  return gulp.src(`${inputScripts}/main.js`)
     .pipe(gulpWebpack(require('./webpack.config.js'), webpack))
     .pipe(gulp.dest(outputScripts));
 });
@@ -145,6 +160,7 @@ gulp.task('watch', (done) => {
   gulp.watch( [`${inputScripts}/*.js`, `${inputLayouts}/**/*.js`], gulp.series('js') );
   gulp.watch( `${inputFonts}/*.*`, gulp.series('fonts') );
   gulp.watch( `${inputImgs}/sprites/*.png`, gulp.series('sprites') );
+  gulp.watch( (`${inputScripts}/libs/**/*.js`), gulp.series('libs') );
 
 
 
@@ -156,7 +172,7 @@ gulp.task('watch', (done) => {
 
 gulp.task('default', gulp.series(
   gulp.parallel(
-    'layouts', 'pics', 'fonts', 'styles', 'sprites', 'js'
+    'layouts', 'pics', 'fonts', 'styles', 'sprites', 'libs', 'js'
   ),
   'serve',
   'watch'

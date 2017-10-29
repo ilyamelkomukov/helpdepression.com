@@ -22,6 +22,8 @@
 #solution-header {
   font: bold 3.5em/normal 'Open Sans', sans;
   text-transform: uppercase;
+  color: hsl(0, 0%, 32%);
+  animation: colorChanges 1.5s ease-out alternate infinite;
 
   @media(min-width: 392px) {
     // font-size: 6.8em;
@@ -37,6 +39,43 @@
 
   @media(min-width: 570px) {
     font-size: 6em;
+  }
+}
+
+@keyframes colorChanges {
+  from {
+    color: hsl(0, 93%, 63%);
+  }
+
+  10% {
+    color: hsl(44, 100%, 50%);
+  }
+  20% {
+    color: rgb(255, 237, 0);
+  }
+  30% {
+    color: hsl(117, 100%, 50%);
+  }
+  40% {
+    color: hsl(169, 100%, 50%);
+  }
+  50% {
+    color: hsl(187, 100%, 50%);
+  }
+  60% {
+    color: rgb(48, 44, 233);
+  }
+  70% {
+    color: hsl(271, 100%, 50%);
+  }
+  80% {
+    color: hsl(291, 100%, 50%);
+  }
+  80% {
+    color: rgb(255, 0, 99);
+  }
+  to {
+    color: rgb(247, 75, 199);
   }
 }
 
@@ -57,7 +96,7 @@
   @media(min-width: 440px) {
     width: 60%;
   }
-  
+
   @media(min-width: 568px) {
     width: 39%;
   }
