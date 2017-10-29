@@ -26,6 +26,7 @@ $("document").ready(()=> {
   });
 
   WhatProblemSlide.animateProblemSlides();
+  WhatProblemSlide.letItRain();
 
   $('a[rel="m_PageScroll2id"]')
     .mPageScroll2id({

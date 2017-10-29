@@ -118,7 +118,16 @@ let WhatProblemSlide = {
 
       setupParallax();
       setupWeather();
+      setupFlash();
     }
+
+    function setupEvents(){
+
+      setupParallax();
+      setupWeather();
+      setupFlash();
+    }
+
 
     function setupParallax(){
       document.addEventListener('mousemove',(event)=>{
@@ -136,6 +145,8 @@ let WhatProblemSlide = {
         })
       });
     }
+
+
 
     function setupWeather(){
       setupWeatherData();
