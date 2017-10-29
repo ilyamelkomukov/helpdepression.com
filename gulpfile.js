@@ -103,12 +103,17 @@ gulp.task('sprites', () => {
 
 /*** End sprites task ***/
 
+
+/*** Start js libs task ***/
+
 gulp.task('libs', () => {
   return gulp.src(`${inputScripts}/libs/**/*.js`)
     .pipe(gulpConcat('libs.js'))
     .pipe(gulpUglify())
     .pipe(gulp.dest(`${outputScripts}/libs/`));
 });
+
+/*** End js libs task ***/
 
 
 /*** Start js task ***/
@@ -155,6 +160,7 @@ gulp.task('watch', (done) => {
   gulp.watch( [`${inputScripts}/*.js`, `${inputLayouts}/**/*.js`], gulp.series('js') );
   gulp.watch( `${inputFonts}/*.*`, gulp.series('fonts') );
   gulp.watch( `${inputImgs}/sprites/*.png`, gulp.series('sprites') );
+  gulp.watch( (`${inputScripts}/libs/**/*.js`), gulp.series('libs') );
 
 
 
