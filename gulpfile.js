@@ -4,7 +4,8 @@
 // TODO: try to solve problem when pics with different sizes (especially with
 //      different heights) need to be showed in one line on one level (align-items by
 //       flex doesn`t fit, it might be like in uno psd template)
-// TODO: Do color changes with TweenMax
+
+// TODO: autohide nav menu
 
 "use strict";
 
@@ -103,17 +104,12 @@ gulp.task('sprites', () => {
 
 /*** End sprites task ***/
 
-
-/*** Start js libs task ***/
-
 gulp.task('libs', () => {
   return gulp.src(`${inputScripts}/libs/**/*.js`)
     .pipe(gulpConcat('libs.js'))
     .pipe(gulpUglify())
     .pipe(gulp.dest(`${outputScripts}/libs/`));
 });
-
-/*** End js libs task ***/
 
 
 /*** Start js task ***/
@@ -160,7 +156,6 @@ gulp.task('watch', (done) => {
   gulp.watch( [`${inputScripts}/*.js`, `${inputLayouts}/**/*.js`], gulp.series('js') );
   gulp.watch( `${inputFonts}/*.*`, gulp.series('fonts') );
   gulp.watch( `${inputImgs}/sprites/*.png`, gulp.series('sprites') );
-  gulp.watch( (`${inputScripts}/libs/**/*.js`), gulp.series('libs') );
 
 
 
