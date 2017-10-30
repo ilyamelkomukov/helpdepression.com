@@ -1,0 +1,40 @@
+.order-form-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: rgb(233, 140, 29);
+}
+
+#order-form-heading {
+  .fontSize(20, 10);
+  font: normal @fontSize/normal 'Honey Script', sans;
+  text-align: center;
+  &:extend(.margins-fix);
+}
+
+
+.order-form {
+  font: normal 1.6em/normal 'Open Sans', sans;
+  color: @text-main-color;
+  width: 100%;
+  .fontSize(60, 10);
+  margin: @fontSize .8em;
+
+  @media(min-width: 1080px) {
+    .size-percent(@advantages-width, @maquette-width);
+    width: @size-percent;
+    margin: 6em auto;
+  }
+
+  @media(min-width: 1280px) {
+    margin: 8em auto;
+  }
+
+  @media(min-width: 1366px) {
+    margin: 14em auto;
+  }
+}
+
+.form-order-elem {
+  background-color: transparent;
+  border: none;
+}
