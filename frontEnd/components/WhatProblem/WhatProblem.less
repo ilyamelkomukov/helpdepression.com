@@ -1,46 +1,17 @@
 .what-problem {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100vw;
   height: 100vh;
-  background: url(../imgs/depression@360.jpg);
+  overflow: hidden;
+}
+
+._mac .what-problem {
+  background: url(/imgs/whatProblemBackLedderResized.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
-
-  @media(min-width: 375px) {
-    background-image: url(../imgs/depression@375.jpg);
-  }
-
-  @media(min-width: 640px) {
-    background-image: url(../imgs/depression@640.jpg);
-  }
-
-  @media(min-width: 667px) {
-    background-image: url(../imgs/depression@667.jpg);
-  }
-
-  @media(min-width: 1024px) {
-    background-image: url(../imgs/depression@1024.jpg);
-  }
-
-  @media(min-width: 1280px) {
-    background-image: url(../imgs/depression@1280.jpg);
-  }
-
-  @media(min-width: 1366px) {
-    background-image: url(../imgs/depression@1366.jpg);
-  }
-
-  @media(min-width: 1440px) {
-    background-image: url(../imgs/depression@1440.jpg);
-  }
-
-  @media(min-width: 1600px) {
-    background-image: url(../imgs/depression@1600.jpg);
-  }
-
-  @media(min-width: 1920px) {
-    background-image: url(../imgs/depression@1920.jpg);
-  }
-
 }
 
 .what-problem__problem {
@@ -49,19 +20,21 @@
 }
 
 .problem {
-  font: normal 5.4em/normal 'Honey Script';
+  font: bold 3.4em/normal 'Open Sans';
   text-align: center;
   opacity: 0;
-  color: @text-main-color;
+  color: @text-inverse-color;
   &:extend(.margins-fix);
 
   @media(min-width: 434px) {
-    font-size: 7.4em;
+    font-size: 4.7em;
   }
 
   @media(max-height: 320px) and (min-width: 568px) {
-    font-size: 5em;
+    font-size: 2.8em;
   }
+
+
 
   @media(min-width: 570px) {
     font-size: 8em;

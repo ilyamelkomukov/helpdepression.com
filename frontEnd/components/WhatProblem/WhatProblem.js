@@ -26,6 +26,11 @@ let WhatProblemSlide = {
 
   letItRain() {
 
+    if ($('body').is('._mac')) {
+      console.log('has _mac');
+      return;
+    }
+
     let textureRainFg, textureRainBg,
       dropColor, dropAlpha;
 
@@ -58,8 +63,8 @@ let WhatProblemSlide = {
         {name:"dropAlpha",src:"imgs/drop-alpha.png"},
         {name:"dropColor",src:"imgs/drop-color.png"},
 
-        {name:"textureRainFg",src:"imgs/texture-rain-fg.png"},
-        {name:"textureRainBg",src:"imgs/texture-rain-bg.png"}
+        {name:"textureRainFg",src:"imgs/whatProblemBackLedderResized.jpg"},
+        {name:"textureRainBg",src:"imgs/whatProblemBackLedderResized.jpg"}
 
       ]).then((images)=>{
         textureRainFg = images.textureRainFg.img;
@@ -73,12 +78,29 @@ let WhatProblemSlide = {
     }
     loadTextures();
 
+
+    var colorIndex = 0;
+
+    $(window).resize(function() {
+      var ratioMainImg = 1366 / 768,
+        canvas = $("#container");
+
+      canvas.width($(window).outerWidth());
+      canvas.height(canvas.width() / ratioMainImg);
+
+      if(canvas.height() <= $(window).outerHeight()) {
+        canvas.height($(window).outerHeight());
+      }
+
+    });
+
+
     function init(){
       canvas=document.querySelector('#container');
 
       let dpi=window.devicePixelRatio;
-      canvas.width=window.innerWidth*dpi;
-      canvas.height=window.innerHeight*dpi;
+      canvas.width=window.innerWidth;
+      canvas.height=window.innerHeight;
       canvas.style.width=window.innerWidth+"px";
       canvas.style.height=window.innerHeight+"px";
 

@@ -8,6 +8,8 @@ import FearsGo from '../components/FearsGo/FearsGo.js'
 
 $("document").ready(()=> {
 
+  _detectIOS();
+
   Nav.changeNavIfPageAlreadyScrolled();
   Nav.showHideNav();
   Nav.makeHamburgerToggleable();
@@ -38,3 +40,11 @@ $("document").ready(()=> {
 
     FearsGo.makeFearsGo();
 });
+
+
+function _detectIOS() {
+  if (window.navigator.platform.indexOf('Mac') != -1) {
+    $('body')
+      .addClass('_mac');
+  }
+}
