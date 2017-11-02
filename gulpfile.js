@@ -28,6 +28,17 @@ const gulp = require('gulp'),
   newer = require('gulp-newer'),
   gulpSpritesmith = require('gulp.spritesmith');
 
+
+
+const browserify = require('browserify'),
+  fs = require('fs'),
+  source = require('vinyl-source-stream'),
+  uglify = require('gulp-uglify'),
+  streamify = require('gulp-streamify'),
+  babelify = require("babelify"),
+  glslify = require("glslify");
+
+
 /*** End plugins ***/
 
 
