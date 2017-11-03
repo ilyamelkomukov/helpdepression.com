@@ -11,9 +11,13 @@
     width: 100%;
   }
 
-  @media(min-width: 640px) {
+  @media(min-width: 1164px) {
     display: none;
   }
+
+.header_fixed .navbar-small-screen {
+  display: none;
+}
 
   .navs {
     text-align: center;
@@ -67,8 +71,12 @@
   width: 100%;
   background-color: @text-main-color;
 
-  @media(min-width: 640px) {
+  @media(min-width: 1164px) {
     background-color: transparent;
+}
+
+.header_fixed .nav-wrapper {
+  display: none;
 }
 
 .site-header__navbar {
@@ -79,7 +87,7 @@
 }
 .navbar {
   width: 90%;
-  height: 10em;
+  height: @navbarHeight;
 
   @media(min-width: 786px) {
     .size-percent(1100, 1500);
@@ -126,7 +134,7 @@
   float: right;
   list-style-type: none;
 
-  @media(min-width: 640px) {
+  @media(min-width: 1164px) {
     display: block;
   }
 
@@ -164,7 +172,7 @@
       }
     }
 
-  @media(min-width: 640px) {
+  @media(min-width: 1164px) {
     display: inline;
   }
 }
@@ -184,7 +192,7 @@
 
 .hamburger-wrapper {
   display: none;
-  @media(max-width: 639px) {
+  @media(max-width: 1163px) {
     display: block;
   }
   float: right;
