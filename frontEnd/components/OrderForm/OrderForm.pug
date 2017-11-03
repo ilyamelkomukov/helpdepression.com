@@ -1,8 +1,33 @@
 section#order.order-form-wrapper(aria-labelledby="order-form-heading")
   h2#order-form-heading(role='heading') Order hypnotoad
-  form.order-form(action="#" method="method")
+  form.order-form(method="post")
+    
+    .thanks
+      span.thanks-message Thank you. Your life will be better soon
+    
+    //- <!-- Hidden Required Fields -->
+    input(type="hidden" name="project_name" value="helpdepression.com")
+    input(type="hidden" name="admin_email" value="hypnotoaddamin@gmail.com")
+    input(type="hidden" name="form_subject" value="Hypnotoad Order")
+    //- <!-- END Hidden Required Fields -->
+
+
     input.form-order-elem#first-name(type="text" required="true" 
-      placeholder="Enter your first name")
-    input.form-order-elem#second-name(type="text" required="true" placeholder="Enter your second name")
-    input.form-order-elem(type="email" required="true" placeholder="Enter your email")
-    button.form-order-elem.button(type="submit") Order
+      placeholder="Enter your first name *" name="first_name"
+      aria-required="true")
+    input.form-order-elem#second-name(type="text" required="true" 
+      placeholder="Enter your second name *" name="second_nbame"
+      aria-required="true")
+    input.form-order-elem#e-mail(type="email" required="true" 
+      placeholder="Enter your email *" name="e-mail"
+      aria-required="true")
+    label.form-order-elem.label-select(for="select") Choose your problem:
+    select#select(type name="problem")
+      option.option(value="My dead girlfriend don't love me anymore" selected)
+        | My dead girlfriend don&#39;t love me anymore
+      option.option(value="Stress growing") Stress growing
+      option.option(value="Appetite growing") Appetite growing
+      option.option(value="I'm not sleeping anymore") I&#39;m not sleeping anymore
+      option.option(value="I want better life") I want better life
+      option.option(value="I just need drugs") I just need drugs
+    button.button.order-button(type="submit") Order

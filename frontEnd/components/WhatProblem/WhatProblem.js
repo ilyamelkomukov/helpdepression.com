@@ -26,8 +26,8 @@ let WhatProblemSlide = {
 
   letItRain() {
 
-    if ($('body').is('._mac')) {
-      console.log('has _mac');
+    if ($('body').is('._no-rain-effect')) {
+      // console.log('has _no-rain-effect');
       return;
     }
 

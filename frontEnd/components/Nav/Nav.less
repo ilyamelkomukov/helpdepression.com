@@ -7,8 +7,9 @@
   .navbar-height-simulate {
     position: relative;
     display: block;
-    height: @navbarHeight;
     width: 100%;
+    &:extend(.catchword-height);
+
   }
 
   @media(min-width: 1229px) {
@@ -87,7 +88,7 @@
 }
 .navbar {
   width: 90%;
-  height: @navbarHeight;
+  &:extend(.catchword-height);
 
   @media(min-width: 786px) {
     .size-percent(1100, 1500);

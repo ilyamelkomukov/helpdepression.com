@@ -6,6 +6,11 @@
 //       flex doesn`t fit, it might be like in uno psd template)
 
 // TODO: autohide nav menu
+// Done
+
+// TODO: encode sprites
+
+// TODO: ie fallback (ie11 doesn`t support rain effect at full power)
 
 "use strict";
 
