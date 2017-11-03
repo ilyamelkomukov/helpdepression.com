@@ -1,30 +1,30 @@
 .footer-wrapper {
   position: relative;
   width: 100%;
-  height: @navbarHeight;
   background-color: @text-main-color;
   color: darken(@text-inverse-color, 30%);
+
+  &:extend(.catchword-height);
 }
 
 .footer {
+}
+
+.footer-sign {
   width: 100%;
-  position: relative;
-  height: @navbarHeight;
   padding: 0 1em;
 
   @media(min-width: 667px) {
     .size-percent(@advantages-width, @maquette-width);
     width: @size-percent;
     margin: 0 auto;
-    padding: 0;
+    margin-left: 200 / 1500 * 100%;
   }
-}
-
-.footer-sign {
   position: absolute;
   &:extend(.vert-center);
   &:extend(.margins-fix);
   font: normal 1.3em / normal "Open Sans", sans;
+  background-color: @text-main-color;
 }
 
 

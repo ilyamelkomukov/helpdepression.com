@@ -1,14 +1,24 @@
 .order-form-wrapper {
   position: relative;
   width: 100%;
-  background-color: rgb(233, 140, 29);
+  background-color: @call-to-action-color;
+  // to fix white line after FearsGo component, those line appears
+  // cause of rwd svg, but we really need rwd
+  margin-top: -4px;
+  color: @text-inverse-color;
+  padding: 1em 0;
 }
 
 #order-form-heading {
-  .fontSize(20, 10);
+  .fontSize(40, 10);
   font: normal @fontSize/normal 'Honey Script', sans;
   text-align: center;
   &:extend(.margins-fix);
+  color: @text-main-color;
+
+  @media(min-width: 667px) {
+    font-size: 7em;
+  }
 }
 
 
@@ -16,25 +26,83 @@
   font: normal 1.6em/normal 'Open Sans', sans;
   color: @text-main-color;
   width: 100%;
-  .fontSize(60, 10);
+  .fontSize(20, 10);
   margin: @fontSize 0;
 
   @media(min-width: 1080px) {
-    .size-percent(@advantages-width, @maquette-width);
-    width: @size-percent;
-    margin: 6em 0;
+    width: 60%;
+    margin: 4em auto;
   }
 
   @media(min-width: 1280px) {
-    margin: 8em 0;
+    width: 50%;
+    margin: 5em auto;
   }
 
   @media(min-width: 1366px) {
-    margin: 14em 0;
+    margin: 6em auto;
   }
 }
+
+.thanks {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  & ~ * {
+    transition: all .6s ease-out;
+  }
+  &.active ~ * {
+    opcaity: .4;
+    filter: blur(25px);
+  }
+}
+
+.active {
+  display: block;
+}
+
+.thanks-message {
+  position: absolute;
+  &:extend(.vert-hor-center);
+  font: normal 2.6em / normal 'Open Sans', sans;
+  text-align: center;
+  color: @text-inverse-color;
+}
+
+
 
 .form-order-elem {
   background-color: transparent;
   border: none;
+  border-bottom: 1px solid @text-main-color;
+  display: block;
+  width: 90%;
+  margin: 1.5em auto;
+  padding: 0 1em;
+  color: @text-inverse-color;
+
+  &::placeholder {
+    color: @text-main-color;
+  }
+}
+
+.label-select {
+  border: none;
+  color: @text-main-color;
+  margin: 0.5em auto;
+}
+
+#select .option {
+  background-color: @call-to-action-color;
+}
+
+.order-button {
+  display: block;
+  margin: .5em auto;
+  font-size: 1.7em;
 }
