@@ -1,0 +1,54 @@
+.basedOn-wrapper {
+  background-color: @about-back-color;
+  text-align: center;
+  color: @text-main-color;
+}
+
+.secret-frontier-svg {
+  // fix for strange not enough height of svg
+  transform: translate3d(0, -1%, 0);
+}
+
+.secret-frontier {
+  fill: @text-main-color;
+  stroke-width: 0;
+}
+
+.basedOn {
+  width: 100%;
+  position: relative;
+
+  @media(min-width: 667px) {
+    .size-percent(@advantages-width, @maquette-width);
+    width: @size-percent;
+    margin: 0 auto;
+
+  }
+
+  figure {
+    width: 100%;
+    &:extend(.margins-fix);
+
+    img {
+      max-width: 100%;
+      width: auto;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      font-size: 3em;
+    }
+  }
+}
+
+#basedOn-heading {
+  font: normal 3.5em / normal 'Honey Script', sans;
+  &:extend(.margins-fix);
+
+  .fontSize(50, 70);
+  margin-bottom: .5em;
+
+  @media(min-width: 667px) {
+    font-size: 7em;
+  }
+}

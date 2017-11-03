@@ -9,8 +9,10 @@
 // Done
 
 // TODO: encode sprites
+// Done
 
 // TODO: ie fallback (ie11 doesn`t support rain effect at full power)
+// Done
 
 "use strict";
 
