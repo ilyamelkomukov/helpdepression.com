@@ -1,3 +1,15 @@
+let UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
+  plugins = [
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        ecma: 7,
+        mangle: true,
+        compress: true,
+        warnings: false
+      }
+    })
+  ];
+
 var isDev = process.env.NODE_ENV == 'development',
   config = {
     devtool: isDev ? 'cheap-eval-source-map' : false,
@@ -21,7 +33,8 @@ var isDev = process.env.NODE_ENV == 'development',
     },
     output: {
       filename: isDev ? '[name].js' : '[name]-[hash].js'
-    }
+    },
+    plugins: isDev ? '' : plugins
   };
 
 module.exports = config;
