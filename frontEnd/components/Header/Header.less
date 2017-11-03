@@ -12,29 +12,20 @@
 .header_fixed {
   position: fixed;
   background-color: @text-main-color;
+  transform: translate3d(0, -100%, 0);
+    transition: transform .7s;
 }
 
-.show-bounce {
-  animation: showBounce 2s;
+.show-header {
+  transition: transform .7s;
+  transform: translate3d(0, 0, 0);
 }
 
-@keyframes showBounce {
-  20%, 53%, 80%, to {
-      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-      transform: translate3d(0,0,0);
-    }
+@keyframes showHeader {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
 
-    from, 40%, 43% {
-      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-      transform: translate3d(0, -100%, 0);
-    }
-
-    70% {
-      animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-      transform: translate3d(0, -40%, 0);
-    }
-
-    90% {
-      transform: translate3d(0, -14%, 0);
-    }
+  to {
+  }
 }

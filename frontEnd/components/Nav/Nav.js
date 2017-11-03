@@ -23,7 +23,7 @@ let Nav = {
     // note: we need to bind resize event handler to window
     $(window)
       .resize(function() {
-        if (($(this).outerWidth() >= 640) && navs.is('.navs_navbar-show')) {
+        if (($(this).outerWidth() >= 1229) && navs.is('.navs_navbar-show')) {
           navs
             .removeClass('navs_navbar-show');
 
@@ -39,33 +39,80 @@ let Nav = {
       scrollTop = $(document).scrollTop(),
       hasClass = neededElem.hasClass('header_fixed');
 
-    if ((scrollTop > neededDistance) && !hasClass) {
+    if ((scrollTop > neededDistance)) {
       neededElem
-        .addClass('header_fixed');
+        .addClass('show-header');
     }
   },
 
   makeNavScrollable () {
+
+    var _thresholdScroll = $(document).scrollTop();
+
     $(document)
       .scroll(function () {
+
+        // want to hide nav-items list when scrolling
+        if ($('.navbar-small-screen .navs').is('.navs_navbar-show')) {
+
+          $('.navbar-small-screen .navs')
+          .removeClass('navs_navbar-show');
+
+        }
+
+        if ($('.hamburger-wrapper .middle').is('.clockwise')) {
+          $('.hamburger-wrapper')
+            .find('.middle')
+              .eq(0)
+                .removeClass("clockwise")
+                .end()
+              .eq(1)
+                .removeClass("counter-clockwise")
+                .end()
+              .end()
+            .find(".top, .bottom")
+              .removeClass("_hidden");
+        }
 
         var neededElem = $('.site-header'),
           neededDistance = neededElem.outerHeight(),
           scrollTop = $(document).scrollTop(),
-          hasClass = neededElem.hasClass('header_fixed');
+          hasHeaderFixed = neededElem.hasClass('header_fixed'),
+          hasHeaderShow = neededElem.hasClass('show-header');
 
-        if ((scrollTop > neededDistance) && !hasClass) {
-
-          neededElem
-            .addClass('header_fixed show-bounce');
-        } else if ((scrollTop > neededDistance) && hasClass) {
-
-          return ;
-
-        } else {
+        if ((scrollTop > neededDistance) && !hasHeaderFixed) {
 
           neededElem
-            .removeClass('header_fixed show-bounce');
+            .addClass('header_fixed');
+
+          _thresholdScroll = scrollTop;
+            // console.log('in header fixed');
+            // console.log(`_thresholdScroll: ${_thresholdScroll}`);
+            // console.log(`scrollTop: ${scrollTop}`);
+            // console.log(`neededDistance: ${neededDistance}`);
+
+        } else if (((_thresholdScroll - scrollTop) > neededDistance) && hasHeaderFixed) {
+
+          neededElem
+            .addClass('show-header');
+          _thresholdScroll = scrollTop;
+          // console.log('in header show');
+          // console.log(`_thresholdScroll: ${_thresholdScroll}`);
+          // console.log(`scrollTop: ${scrollTop}`);
+          // console.log(`neededDistance: ${neededDistance}`);
+
+        } else if (((scrollTop - _thresholdScroll) > 0) && hasHeaderFixed) {
+
+          _thresholdScroll = scrollTop;
+          neededElem
+            .removeClass('show-header');
+
+        } else if (scrollTop <= neededDistance) {
+
+          // console.log('in delete');
+          neededElem
+            .removeClass('header_fixed show-header');
+            _thresholdScroll = 0;
         }
       });
   }

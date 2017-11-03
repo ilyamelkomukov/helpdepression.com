@@ -11,9 +11,13 @@
     width: 100%;
   }
 
-  @media(min-width: 640px) {
+  @media(min-width: 1229px) {
     display: none;
   }
+
+.header_fixed .navbar-small-screen {
+  display: none;
+}
 
   .navs {
     text-align: center;
@@ -67,8 +71,12 @@
   width: 100%;
   background-color: @text-main-color;
 
-  @media(min-width: 640px) {
+  @media(min-width: 1229px) {
     background-color: transparent;
+}
+
+.header_fixed .nav-wrapper {
+  display: none;
 }
 
 .site-header__navbar {
@@ -79,7 +87,7 @@
 }
 .navbar {
   width: 90%;
-  height: 10em;
+  height: @navbarHeight;
 
   @media(min-width: 786px) {
     .size-percent(1100, 1500);
@@ -95,6 +103,8 @@
 }
 
 .svg-logo {
+  position: relative;
+  padding-left: 60px;
   float: left;
   font: normal 3.5em / normal "Honey Script", sans;
   color: lighten(@text-main-color, 20%);
@@ -104,6 +114,17 @@
 
   &:hover {
     color: @text-inverse-color;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../imgs/sprites.png) -48px 0px;
+    width: 56px;
+    height: 41px;
   }
 }
 
@@ -126,7 +147,7 @@
   float: right;
   list-style-type: none;
 
-  @media(min-width: 640px) {
+  @media(min-width: 1229px) {
     display: block;
   }
 
@@ -164,7 +185,7 @@
       }
     }
 
-  @media(min-width: 640px) {
+  @media(min-width: 1229px) {
     display: inline;
   }
 }
@@ -184,7 +205,7 @@
 
 .hamburger-wrapper {
   display: none;
-  @media(max-width: 639px) {
+  @media(max-width: 1228px) {
     display: block;
   }
   float: right;
