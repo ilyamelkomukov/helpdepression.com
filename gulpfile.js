@@ -33,18 +33,8 @@ const gulp = require('gulp'),
   gulpUglify = require('gulp-uglify'),
   imagemin = require('gulp-imagemin'),
   newer = require('gulp-newer'),
-  gulpSpritesmith = require('gulp.spritesmith');
-
-
-
-const browserify = require('browserify'),
-  fs = require('fs'),
-  source = require('vinyl-source-stream'),
-  uglify = require('gulp-uglify'),
-  streamify = require('gulp-streamify'),
-  babelify = require("babelify"),
+  gulpSpritesmith = require('gulp.spritesmith'),
   glslify = require("glslify");
-
 
 /*** End plugins ***/
 
