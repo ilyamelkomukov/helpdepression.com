@@ -23,7 +23,7 @@ let Nav = {
     // note: we need to bind resize event handler to window
     $(window)
       .resize(function() {
-        if (($(this).outerWidth() >= 1164) && navs.is('.navs_navbar-show')) {
+        if (($(this).outerWidth() >= 1229) && navs.is('.navs_navbar-show')) {
           navs
             .removeClass('navs_navbar-show');
 
@@ -52,6 +52,7 @@ let Nav = {
     $(document)
       .scroll(function () {
 
+        // want to hide nav-items list when scrolling
         if ($('.navbar-small-screen .navs').is('.navs_navbar-show')) {
 
           $('.navbar-small-screen .navs')
@@ -85,20 +86,20 @@ let Nav = {
             .addClass('header_fixed');
 
           _thresholdScroll = scrollTop;
-            console.log('in header fixed');
-            console.log(`_thresholdScroll: ${_thresholdScroll}`);
-            console.log(`scrollTop: ${scrollTop}`);
-            console.log(`neededDistance: ${neededDistance}`);
+            // console.log('in header fixed');
+            // console.log(`_thresholdScroll: ${_thresholdScroll}`);
+            // console.log(`scrollTop: ${scrollTop}`);
+            // console.log(`neededDistance: ${neededDistance}`);
 
-        } else if (((_thresholdScroll - scrollTop) > 0) && hasHeaderFixed) {
+        } else if (((_thresholdScroll - scrollTop) > neededDistance) && hasHeaderFixed) {
 
           neededElem
             .addClass('show-header');
           _thresholdScroll = scrollTop;
-          console.log('in header show');
-          console.log(`_thresholdScroll: ${_thresholdScroll}`);
-          console.log(`scrollTop: ${scrollTop}`);
-          console.log(`neededDistance: ${neededDistance}`);
+          // console.log('in header show');
+          // console.log(`_thresholdScroll: ${_thresholdScroll}`);
+          // console.log(`scrollTop: ${scrollTop}`);
+          // console.log(`neededDistance: ${neededDistance}`);
 
         } else if (((scrollTop - _thresholdScroll) > 0) && hasHeaderFixed) {
 
@@ -108,7 +109,7 @@ let Nav = {
 
         } else if (scrollTop <= neededDistance) {
 
-          console.log('in delete');
+          // console.log('in delete');
           neededElem
             .removeClass('header_fixed show-header');
             _thresholdScroll = 0;
