@@ -8,6 +8,7 @@ import OrderForm from '../components/OrderForm/OrderForm.js';
 
 "use strict";
 
+
 $("document").ready(()=> {
 
   _detectNoRainEffect();
@@ -20,7 +21,7 @@ $("document").ready(()=> {
   // start carousel
   $(".owl-carousel").owlCarousel({
     items: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplayHoverPause: true,
     rewind: true,
     dots: false,

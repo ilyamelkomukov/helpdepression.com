@@ -35,7 +35,7 @@ let UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
     output: {
       filename: bundleName
     },
-    plugins: isDev ? '' : plugins
+    plugins: isDev ? [] : plugins
   };
 
 module.exports = config;
