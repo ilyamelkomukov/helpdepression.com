@@ -1,4 +1,5 @@
 let UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
+
   plugins = [
     new UglifyJSPlugin({
       uglifyOptions: {
@@ -8,9 +9,9 @@ let UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
         warnings: false
       }
     })
-  ];
-
-var isDev = process.env.NODE_ENV == 'development',
+  ],
+  isDev = process.env.NODE_ENV == 'development',
+  bundleName = isDev ? '[name].js' : `[name]-${(Date.now() + '').slice(-8)}.js`
   config = {
     devtool: isDev ? 'cheap-eval-source-map' : false,
     module: {
@@ -32,7 +33,7 @@ var isDev = process.env.NODE_ENV == 'development',
       ]
     },
     output: {
-      filename: isDev ? '[name].js' : '[name]-[hash].js'
+      filename: bundleName
     },
     plugins: isDev ? '' : plugins
   };
