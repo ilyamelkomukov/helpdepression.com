@@ -7,7 +7,9 @@ section.testimonials-wrapper#testimonials(aria-labelledby="testimonials-header")
   section.testimonials.testimonials-wrapper__testimonials
     .testimonial
       figure.reviewer.testimonial__reviewer
-        img.reviewer-photo(src="../imgs/MoeCrocker.jpg", alt="reviewer photo")
+        picture
+          source(srcset="../imgs/MoeCrocker.webp" type="image/webp" alt="reviewer photo")
+          img.reviewer-photo(src="../imgs/MoeCrocker.jpg" alt="reviewer photo")
         figcaption.reviewer-name
           | Moe Crocker
       .reviewer-testimonial
@@ -15,7 +17,9 @@ section.testimonials-wrapper#testimonials(aria-labelledby="testimonials-header")
         | Furthermore, my dead girlfriend really love me again!
     .testimonial
       figure.reviewer.testimonial__reviewer
-        img.reviewer-photo(src="../imgs/ShmichailiaShmerou.jpg", alt="reviewer photo")
+        picture
+          source(srcset="../imgs/ShmichailiaShmerou.webp" type="image/webp" alt="reviewer photo")
+          img.reviewer-photo(src="../imgs/ShmichailiaShmerou.jpg", alt="reviewer photo")
         figcaption.reviewer-name
           | Shmichailia Shmerou
       .reviewer-testimonial
@@ -23,7 +27,9 @@ section.testimonials-wrapper#testimonials(aria-labelledby="testimonials-header")
         | ready for new achievements
     .testimonial
       figure.reviewer.testimonial__reviewer
-        img.reviewer-photo(src="../imgs/WillShmates.jpg", alt="reviewer photo")
+        picture
+          source(srcset="../imgs/WillShmates.webp" type="image/webp" alt="reviewer photo")        
+          img.reviewer-photo(src="../imgs/WillShmates.jpg", alt="reviewer photo")
         figcaption.reviewer-name
           | Will Shmates
       .reviewer-testimonial

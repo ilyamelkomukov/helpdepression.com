@@ -8,53 +8,107 @@ import OrderForm from '../components/OrderForm/OrderForm.js';
 
 "use strict";
 
-$("document").ready(()=> {
+let mainObj = {
 
-  _detectNoRainEffect();
+  noRainEffect: false,
 
-  Nav.changeNavIfPageAlreadyScrolled();
-  Nav.showHideNav();
-  Nav.makeHamburgerToggleable();
-  Nav.makeNavScrollable();
+  webpCompatible: false,
 
-  // start carousel
-  $(".owl-carousel").owlCarousel({
-    items: 1,
-    // autoplay: true,
-    autoplayHoverPause: true,
-    rewind: true,
-    dots: false,
-    nav: true,
-    center: true,
-    startPosition: 0
-  });
+  detectNoRainEffect() {
+    var _isIE10OrOlder = window.navigator.appVersion.indexOf('MSIE');
+    _isIE10OrOlder++;
 
-  WhatProblemSlide.animateProblemSlides();
-  WhatProblemSlide.letItRain();
+    if ((window.navigator.platform.indexOf('Mac') != -1) || !!(_isIE10OrOlder)) {
+      this.noRainEffect = true;
+      $('body').addClass('_no-rain-effect');
+    }
+  },
 
-  $('a[rel="m_PageScroll2id"]')
-    .mPageScroll2id({
-      offset:".nav-wrapper",
-      appendHash: true
+  detectWebp() {
+
+    var TEstWebp = new Image();
+
+    TEstWebp.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+    TEstWebp.onload = TEstWebp.onerror = ()=> {
+      if (TEstWebp.height != 0) {
+        this.webpCompatible = true;
+        $('body').addClass('webp');
+      }
+
+      this.init();
+    };
+  },
+
+  replaceFromWebpToImg() {
+    if (!this.webpCompatible || $(window).outerWidth() > 1366) {
+
+      $('.toJpg, .toPng')
+        .attr('xlink:href', function () {
+          let srcAttr = $(this).attr('xlink:href');
+          switch (true) {
+            case $(this).is('.toPng'):
+              return srcAttr.replace('.webp', '.png');
+              break;
+            case $(this).is('.toJpg'):
+              return srcAttr.replace('.webp', '.jpg');
+              break;
+            default:
+              return;
+          }
+        });
+    }
+  },
+
+  init() {
+
+    $("document").ready(()=> {
+
+      this.detectNoRainEffect();
+      // this.detectWebp();
+      this.replaceFromWebpToImg();
+
+      Nav.changeNavIfPageAlreadyScrolled();
+      Nav.showHideNav();
+      Nav.makeHamburgerToggleable();
+      Nav.makeNavScrollable();
+
+      // start carousel
+      $(".owl-carousel").owlCarousel({
+        items: 1,
+        autoplay: true,
+        autoplayHoverPause: true,
+        rewind: true,
+        dots: false,
+        nav: true,
+        center: true,
+        startPosition: 0
+      });
+
+      WhatProblemSlide.animateProblemSlides();
+      WhatProblemSlide.letItRain();
+
+      $('a[rel="m_PageScroll2id"]')
+      .mPageScroll2id({
+        offset:".nav-wrapper",
+        appendHash: true
+      });
+
+      CallToAction.makeGoToOrder();
+
+      ImpactAreas.makeHighlightAreas();
+
+      FearsGo.makeFearsGo();
+
+      OrderForm.makeSelectize();
+      OrderForm.makeSendOrder();
     });
 
-  CallToAction.makeGoToOrder();
-
-  ImpactAreas.makeHighlightAreas();
-
-  FearsGo.makeFearsGo();
-
-  OrderForm.makeSelectize();
-  OrderForm.makeSendOrder();
-});
-
-
-function _detectNoRainEffect() {
-  var _isIE10OrOlder = window.navigator.appVersion.indexOf('MSIE');
-  _isIE10OrOlder++;
-
-  if ((window.navigator.platform.indexOf('Mac') != -1) || !!(_isIE10OrOlder)) {
-    $('body')
-      .addClass('_no-rain-effect');
+    $(window).resize(()=> {
+      this.replaceFromWebpToImg();
+    });
   }
-}
+};
+
+// mainObj.init();
+mainObj.detectWebp();
+export default mainObj;

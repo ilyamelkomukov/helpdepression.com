@@ -2,8 +2,10 @@ section.what-problem(aria-labelledby="what-problem-heading")
   div.image-preload
     img(src="/imgs/drop-color.png" alt="") 
     img(src="/imgs/drop-alpha.png" alt="")
-    img(src="/imgs/whatProblemBackLedderResized.jpg" alt="Lonely man going om ladder")
-    img(src="/imgs/whatProblemBackLedderResized.jpg" alt="Lonely man going om ladder")
+    picture
+      source(srcset="../imgs/whatProblemBackLedderResized.webp" type="image/webp" alt="Lonely man going om ladder")
+      img(src="/imgs/whatProblemBackLedderResized.jpg" alt="Lonely man going on ladder")
+    //- img(src="/imgs/whatProblemBackLedderResized.jpg" alt="Lonely man going on ladder")
   canvas#container(width="1" height="1" style="position:absolute")
   p.nosupport
     | Sorry, but your browser does not support WebGL!

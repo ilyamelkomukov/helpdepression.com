@@ -5,7 +5,7 @@ import loadImages from "./image-loader";
 import createCanvas from "./create-canvas";
 import times from './times';
 import {random,chance} from './random';
-
+import mainObj from '../../scripts/main.js';
 
 let WhatProblemSlide = {
 
@@ -26,10 +26,13 @@ let WhatProblemSlide = {
 
   letItRain() {
 
-    if ($('body').is('._no-rain-effect')) {
-      // console.log('has _no-rain-effect');
+    if (mainObj.noRainEffect) {
       return;
     }
+    // if ($('body').is('._no-rain-effect')) {
+    //   // console.log('has _no-rain-effect');
+    //   return;
+    // }
 
     let textureRainFg, textureRainBg,
       dropColor, dropAlpha;
@@ -59,14 +62,25 @@ let WhatProblemSlide = {
     let blend={v:0};
 
     function loadTextures(){
-      loadImages([
+
+      let imgs = [
         {name:"dropAlpha",src:"imgs/drop-alpha.png"},
         {name:"dropColor",src:"imgs/drop-color.png"},
+      ];
 
-        {name:"textureRainFg",src:"imgs/whatProblemBackLedderResized.jpg"},
-        {name:"textureRainBg",src:"imgs/whatProblemBackLedderResized.jpg"}
-
-      ]).then((images)=>{
+      if (mainObj.webpCompatible) {
+        imgs.push(
+            {name:"textureRainFg",src:"imgs/whatProblemBackLedderResized.webp"},
+            {name:"textureRainBg",src:"imgs/whatProblemBackLedderResized.webp"}
+        );
+      }
+      else {
+        imgs.push(
+          {name:"textureRainFg",src:"imgs/whatProblemBackLedderResized.jpg"},
+          {name:"textureRainBg",src:"imgs/whatProblemBackLedderResized.jpg"}
+        );
+      }
+      loadImages(imgs).then((images)=>{
         textureRainFg = images.textureRainFg.img;
         textureRainBg = images.textureRainBg.img;
 
