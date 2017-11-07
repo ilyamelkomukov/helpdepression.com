@@ -13,8 +13,8 @@ let OrderForm = {
     $(".order-form").eq(0).submit(function() {
       var th = $(this);
         $.ajax({
-          // type: "POST",
-          // url: "mail.php",
+          type: "POST",
+          url: "mail.php",
           data: th.serialize()
         })
         .done(function() {
